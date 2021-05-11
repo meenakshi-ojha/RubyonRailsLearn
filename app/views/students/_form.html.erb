@@ -1,0 +1,43 @@
+<%= form_with model: student do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% student.errors.full_messages_for(:name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :contact %><br>
+      <%= form.telephone_field:contact %>
+      <% student.errors.full_messages_for(:contact).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+      <%= form.label :email %><br>
+      <%= form.email_field:email %>
+      <% student.errors.full_messages_for(:email).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+      <%= form.label :department %><br>
+      <%= form.collection_select(:department_id, Department.all, :id, :name) %>
+      <% student.errors.full_messages_for(:department).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+      <%= form.label :course %><br>
+      <%= form.collection_select(:course_id, Course.all, :id, :name) %>
+      <% student.errors.full_messages_for(:course).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+  

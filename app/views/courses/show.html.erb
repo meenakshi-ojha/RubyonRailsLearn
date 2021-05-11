@@ -1,0 +1,10 @@
+<h1><%=@course.name%></h1>
+<p>course id: <%=@course.id%><br>
+belongs to department <%=@course.department.name%></p>
+
+<ul>
+<li><%= link_to "home", root_path %></li>
+<li><%= link_to "Delete", department_course_path(@course),
+method: :delete,
+data: { confirm: "Are you sure?" } %></li>
+<li><%= link_to "Edit", edit_department_course_path(@course) %></li>

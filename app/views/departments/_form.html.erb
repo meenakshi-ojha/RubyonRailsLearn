@@ -1,0 +1,9 @@
+<%= form_with model: department do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>

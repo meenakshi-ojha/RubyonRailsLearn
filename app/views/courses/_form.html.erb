@@ -1,0 +1,13 @@
+<%= form_with model: course do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :department_id %><br>
+      <%= form.text_field :department_id %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+    <%end%>

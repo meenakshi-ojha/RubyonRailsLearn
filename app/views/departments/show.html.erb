@@ -1,0 +1,13 @@
+<h1><%=@department.name%></h1>
+<p>department id: <%=@department.id%></p>
+
+<ul>
+<li><%= link_to "home", root_path %></li>
+<li><%= link_to "Edit", edit_department_path(@department) %></li>
+<li><%= link_to "Delete", department_path(@department),
+method: :delete,
+data: { confirm: "Are you sure?" } %></li>
+
+  <li><%= link_to "all courses by this dept", department_courses_path(@department) %></li>
+  <li><%= link_to "all students in this dept", department_students_path(@department) %></li>
+  </ul>

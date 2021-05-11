@@ -1,0 +1,13 @@
+<h1>COURSES for <%=@department.name%> </H1>
+<ul>
+  <% @department.course.each do |course| %>
+    <li>
+   
+    <%=  link_to course.name, department_course_path(@department,course) %>
+    
+    </li>
+
+  <% end %>
+</ul>
+<li><%= link_to "home", root_path %></li>
+<%= link_to "New course", new_department_course_path %>

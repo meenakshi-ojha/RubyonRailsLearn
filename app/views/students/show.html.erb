@@ -3,11 +3,17 @@
 <p><%=@student.contact%><br>
 <%=@student.email%><br>
 <%=@student.department.name%><br>
-<%=@student.course.name%></p>
+ 
+<%= @student.course.name %>
+
+
+</p>
 
 <ul>
-  <li><%= link_to "Edit", edit_department_student_path(@student) %></li>
+  <li><%= link_to "Edit", edit_department_student_path(@department.id,@student) %></li>
   <li><%= link_to "Destroy", department_student_path(@student),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
+                  data: { confirm: "Are you sure?" } %>
+                  </li>
+  <li><%= link_to "home", root_path %></li>
 </ul>

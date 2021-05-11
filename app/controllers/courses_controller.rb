@@ -7,7 +7,8 @@ class CoursesController < ApplicationController
     end
     def new
         @department=Department.find(params[:department_id])
-        @course=Course.new
+        @course=@department.courses.build
+
       end
       def create
         @course= Course.create(course_params)
@@ -26,8 +27,8 @@ class CoursesController < ApplicationController
       @department=Department.find(params[:department_id])
       @course=Course.find(params[:id])
 
-      if @Course.update(course_params)
-        redirect_to department_courses_path
+      if @course.update(course_params)
+        redirect_to department_course_path(@course)
       else
         render :edit
       end

@@ -1,4 +1,4 @@
-<%= form_with model: course do |form| %>
+<%= form_with model: [@department,course] do |form| %>
     <div>
       <%= form.label :name %><br>
       <%= form.text_field :name %>

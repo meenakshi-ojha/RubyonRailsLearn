@@ -1,4 +1,4 @@
 class Department < ApplicationRecord
-    has_many:student
-    has_many:course
+    has_many:students
+    has_many:courses
 end

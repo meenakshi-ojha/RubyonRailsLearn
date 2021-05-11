@@ -1,6 +1,6 @@
 <h1>COURSES for <%=@department.name%> </H1>
 <ul>
-  <% @department.course.each do |course| %>
+  <% @department.courses.each do |course| %>
     <li>
    
     <%=  link_to course.name, department_course_path(@department,course) %>

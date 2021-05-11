@@ -1,31 +1,33 @@
 class StudentsController < ApplicationController
   def index
-    @students =Student.all
-    @departments=Department.all
-    @courses=Course.all
+    @department=Department.find(params[:department_id])
   end
   def show
+    @department=Department.find(params[:department_id])
     @student=Student.find(params[:id])
   end
   def new
-    @student=Student.new
+    @department=Department.find(params[:department_id])
+    @student=@department.students.build
   end
   def create
-    @student = Student.create(student_params)
-
+    @department = Department.find(params[:department_id])
+    @student = @department.students.create(student_params)
     if @student.save
-      redirect_to @student
-    else
-      render :new
+      puts "A new student has been created"
     end
+    redirect_to department_students_path
   end
   def edit
-    @student=Student.find(params[:id])
+    @department=Department.find(params[:department_id])
+    @student=@department.students.find(params[:id])
   end
  def update
-  @student=Student.find(params[:id])
+  @department=Department.find(params[:department_id])
+  @student=@department.students.find(params[:id])
+  # @student=Student.find(params[:id])
   if @student.update(student_params)
-    redirect_to @student
+    redirect_to department_student_path
   else
     render :edit
   end

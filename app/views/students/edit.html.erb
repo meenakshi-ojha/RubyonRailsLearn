@@ -1,2 +1,6 @@
 <h1>edit student details</h1>
-<%= render "form", student: @student %>
+<%= link_to "home", root_path %>
+<%= render 'students/form' ,department:[@department,@student] %>
+
+
+  

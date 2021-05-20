@@ -12,11 +12,13 @@ class StudentsController < ApplicationController
   end
   def create
     @department = Department.find(params[:department_id])
-    @student = @department.students.create(student_params)
+   
+    @student = @department.students.build(student_params)
     if @student.save
-      puts "A new student has been created"
+      redirect_to department_students_path
+    else
+      redirect_to root_path
     end
-    redirect_to department_students_path
   end
   def edit
     @department=Department.find(params[:department_id])

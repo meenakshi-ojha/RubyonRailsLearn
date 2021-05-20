@@ -18,7 +18,8 @@
    </div>
   <div>
     <%= form.label :course %><br>
-    <%= form.collection_select(:course_id, Course.all, :id, :name) %>
+    
+   <%=form.collection_select( :course_id, Course.all, :id, :name)%>
     </div>
 
   <div>

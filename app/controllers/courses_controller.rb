@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  http_basic_authenticate_with name: "meenakshi", password: "secret", except: [:index, :show]
     def index
         @department=Department.find(params[:department_id])
     end
